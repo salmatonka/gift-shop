@@ -8,7 +8,7 @@ const CategoryGifts = () => {
     const [categoryGifts,setCategoryGifts] = useState([]);
 
     useEffect( () =>{
-        fetch(' https://gift-server.vercel.app/category')
+        fetch('https://gift-server-salmatonka.vercel.app/category')
         .then( res => res.json())
         .then(data => setCategoryGifts(data));
     },[])

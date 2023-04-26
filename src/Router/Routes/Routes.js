@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import ProductCards from "../../Pages/ProductCards/ProductCards/ProductCards";
-import CategoryGifts from "../../Pages/CategoryGifts/CategoryGifts/CategoryGifts";
 import Category from "../../Pages/Category/Category/Category";
 import Products from "../../Pages/Products/Products/Products";
 import AboutPage from "../../Pages/Others/AboutPage/AboutPage";
@@ -24,20 +23,20 @@ const router = createBrowserRouter([
             {
                 path:'/product',
                 element:<Products/>,
-                loader: () => fetch(' https://gift-server.vercel.app/products')
+                loader: () => fetch('https://gift-server-salmatonka.vercel.app/products')
                 
             },
 
             {
                 path:'/category/:id',
                 element:<Category/>,
-                loader: ({params}) => fetch(` https://gift-server.vercel.app/category/${params.id}`)
+                loader: ({params}) => fetch(`https://gift-server-salmatonka.vercel.app/category/${params.id}`)
             } ,
 
             {
                 path:'/product/:id',
                 element:<ProductCards/> ,
-                loader: ({params}) => fetch(` https://gift-server.vercel.app/products/${params.id}`)
+                loader: ({params}) => fetch(`https://gift-server-salmatonka.vercel.app/products/${params.id}`)
                 
             },
             {
@@ -45,11 +44,12 @@ const router = createBrowserRouter([
                 element:<BookingPage/>, 
                
             },
-            // {
-            //     path:'/products/:_id',
-            //     element:<BookingPage/>, 
-            //     loader: ({params}) => fetch(` https://gift-server.vercel.app/products/${params._id}`) 
-            // },
+            {
+                path:'/booking/:id',
+                element:<BookingPage/>, 
+                loader: ({params}) => fetch(`https://gift-server-salmatonka.vercel.app/products/${params.id}`) 
+            },
+            
             {
                 path:'/about',
                 element:<AboutPage/>,  
